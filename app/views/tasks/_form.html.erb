@@ -3,12 +3,12 @@
 
 <%= form_for(task) do |f| %>
 
-<% if task.errors.any? %>
+<% if message.errors.any? %>
 
     <div class="alert alert-warning">
       <ul>
         
-<% task.errors.full_messages.each do |message| %>
+<% message.errors.full_messages.each do |message| %>
 
           <li>
 <%= message %>
