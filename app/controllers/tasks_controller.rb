@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
     @tasks = Task.order(created_at: :desc).page(params[:page]).per(10)
@@ -41,7 +41,8 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     flash[:success] = 'Task を削除しました'
-    redirect_back(fallback_location: root_path)
+    #redirect_back(fallback_location: root_path)
+    redirect_to root_url
   end
   
   private
